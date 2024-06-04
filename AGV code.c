@@ -5,7 +5,7 @@ int main(void)
     PORTB &= ~(1<<PB7); //led 1 uit
 	while (1)
 	{
-	  PORTB |= (1<<PB7);
+	  PORTB |= (1<<PB7); //led 1 aan
 	}
 
   return 0;
