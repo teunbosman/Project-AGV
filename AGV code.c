@@ -12,12 +12,10 @@ int main(void)
 		if ((PINF &(1<<PF2))==0)
 		{
 		PORTB |= (1<<PB7); //led 1 aan
-		_delay_ms(200);
 		}
 			
 		else {
 		PORTB &=~(1 << PB7); //led 1 uit
-		_delay_ms(50);
 		}
 	}
 
