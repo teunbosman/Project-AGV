@@ -9,7 +9,9 @@ int main(void)
 	while (1)
 	{
 	  PORTB |= (1<<PB7); //led 1 aan
-		
+		_delay_ms(200);
+		PORTB &=~(1 << PB7);
+		_delay_ms(200);
 	}
 
   return 0;
