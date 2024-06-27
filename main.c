@@ -85,9 +85,9 @@ void Leds_Links_Knipper_AAN_uit() { // AAN uit
 void Bocht_Maken_Linksom() {
     Rechtdoor();
     MOTORL(snelheidrechtdoor);  MOTORR(snelheidrechtdoor);  _delay_ms(500); // NOG EEN STUKJE RECHTDOOR RIJDEN.
-    MOTORL(snelheiduit);        MOTORR(snelheidhard);       _delay_ms(550);  // 90 GRADEN BOCHT MAKEN
-    MOTORL(snelheidrechtdoor);  MOTORR(snelheidrechtdoor);  _delay_ms(400); // NOG EEN STUKJE RECHTDOOR RIJDEN.
-    MOTORL(snelheiduit);        MOTORR(snelheidhard);       _delay_ms(550);  // 90 GRADEN BOCHT MAKEN
+    MOTORL(snelheiduit);        MOTORR(snelheidhard);       _delay_ms(975);  // 90 GRADEN BOCHT MAKEN
+    MOTORL(snelheidrechtdoor);  MOTORR(snelheidrechtdoor);  _delay_ms(1908); // NOG EEN STUKJE RECHTDOOR RIJDEN.
+    MOTORL(snelheiduit);        MOTORR(snelheidhard);       _delay_ms(1000);  // 90 GRADEN BOCHT MAKEN
     MOTORL(snelheidrechtdoor);  MOTORR(snelheidrechtdoor);  _delay_ms(800); // NOG EEN STUKJE RECHTDOOR RIJDEN.
     toestand = AUTOMATISCH_RIJDEN;
 //    if (stand == 0){
@@ -100,9 +100,9 @@ void Bocht_Maken_Linksom() {
 void Bocht_Maken_Rechtsom() {
     Rechtdoor();
     MOTORL(snelheidrechtdoor);  MOTORR(snelheidrechtdoor);  _delay_ms(500); // NOG EEN STUKJE RECHTDOOR RIJDEN.
-    MOTORL(snelheidhard);       MOTORR(snelheiduit);        _delay_ms(550);  // 90 GRADEN BOCHT MAKEN
-    MOTORL(snelheidrechtdoor);  MOTORR(snelheidrechtdoor);  _delay_ms(500); // NOG EEN STUKJE RECHTDOOR RIJDEN.
-    MOTORL(snelheidhard);       MOTORR(snelheiduit);        _delay_ms(550);  // 90 GRADEN BOCHT MAKEN
+    MOTORL(snelheidhard);       MOTORR(snelheiduit);        _delay_ms(650);  // 90 GRADEN BOCHT MAKEN
+    MOTORL(snelheidrechtdoor);  MOTORR(snelheidrechtdoor);  _delay_ms(400); // NOG EEN STUKJE RECHTDOOR RIJDEN.
+    MOTORL(snelheidhard);       MOTORR(snelheiduit);        _delay_ms(950);  // 90 GRADEN BOCHT MAKEN
     MOTORL(snelheidrechtdoor);  MOTORR(snelheidrechtdoor);  _delay_ms(800); // NOG EEN STUKJE RECHTDOOR RIJDEN.
     if (stand == 0){
         toestand = VOLGEN;                                                   // TOESTAND VERANDEREN NAAR VOLGEN
@@ -114,11 +114,11 @@ void Bocht_Maken_Rechtsom() {
 void Pad_Detectie() {
     Rechtdoor();
     // TESTEN VAN INFRAROOD SENSOR LINKS
-        if ((PINF & (1 << IR_L)) == 0) {  MOTORL(snelheidrechtdoor);  }         // muur dichtbij
-        else if ((PINF & (1 << IR_L)) != 0) {  MOTORL(snelheidbijsturen);  }    // muur weg dus bijsturen andere kant
+        if ((PINF & (1 << IR_L)) == 0) {  MOTORL(39);  }         // muur dichtbij
+        else if ((PINF & (1 << IR_L)) != 0) {  MOTORL(55);  }    // muur weg dus bijsturen andere kant
     // TESTEN VAN INFRAROOD SENSOR RECHTS
-        if ((PINF & (1 << IR_R)) == 0) {  MOTORR(snelheidrechtdoor);  }         // muur dichtbij
-        else if ((PINF & (1 << IR_R)) != 0) {  MOTORR(snelheidbijsturen);  }    // muur weg dus bijsturen andere kant
+        if ((PINF & (1 << IR_R)) == 0) {  MOTORR(47);  }         // muur dichtbij
+        else if ((PINF & (1 << IR_R)) != 0) {  MOTORR(55);  }    // muur weg dus bijsturen andere kant
     // DETECTIE EINDE RIJSTROOK
         if (((PINF & (1 << IR_R)) && (PINF & (1 << IR_L))) != 0) {              // Voorbij beide balken
             MOTORL(snelheidhard);  MOTORR(snelheidhard);                        // SNELHEID MOTOREN
